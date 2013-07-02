@@ -19,6 +19,11 @@ module Faker
       # Wordlist from http://www.bullshitjob.com/title/
       def title; fetch('name.title.descriptor') + ' ' + fetch('name.title.level') + ' ' + fetch('name.title.job'); end
 
+      def birthed_on
+        decade = [0, 0, 0, 0, 10, 10, 10, 10, 20, 20, 20, 20, 30, 30, 30, 30, 40, 40, 40, 40, 50, 50, 50, 50, 60, 60, 60, 70, 70, 80, 90].sample
+        Date.today - (decade + rand(10)).years - rand(365).days
+      end
+
     end
   end
 end
